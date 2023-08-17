@@ -62,37 +62,37 @@
   </style>
 </head>
 <body>
-  <a href="/adduser_form" class="adduser_button">Добавить пользователя</a>
+<a href="/user" class="adduser_button">Добавить пользователя</a>
 
-  <table>
-    <caption><h2>Список пользователей</h2></caption>
-    <tr>
-      <th>ID</th>
-      <th>Имя</th>
-      <th>Фамилия</th>
-      <th>Почта</th>
-      <th>Возраст</th>
-      <th>Изменить пользователя</th>
-      <th>Удалить пользователя</th>
-    </tr>
-    <tr th:each="user : ${users}">
-      <td th:utext="${user.getId()}">Id</td>
-      <td th:utext="${user.getFirstName()}">Имя</td>
-      <td th:utext="${user.getLastName()}">Фамилия</td>
-      <td th:utext="${user.getEmail()}">Почта</td>
-      <td th:utext="${user.getAge()}">Возраст</td>
-      <td>
-        <form th:method="GET" th:action="@{/update_user_form/{id}(id=${user.getId()})}" th:object="${user}">
-          <input class="update_button" type="submit" value="Изменить">
-        </form>
-      </td>
+<table>
+  <caption><h2>Список пользователей</h2></caption>
+  <tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Почта</th>
+    <th>Возраст</th>
+    <th>Изменить пользователя</th>
+    <th>Удалить пользователя</th>
+  </tr>
+  <tr th:each="user : ${users}">
+    <td th:utext="${user.getId()}">Id</td>
+    <td th:utext="${user.getFirstName()}">Имя</td>
+    <td th:utext="${user.getLastName()}">Фамилия</td>
+    <td th:utext="${user.getEmail()}">Почта</td>
+    <td th:utext="${user.getAge()}">Возраст</td>
+    <td>
+      <form th:method="GET" th:action="@{/user/{id}(id=${user.getId()})}" th:object="${user}">
+        <input class="update_button" type="submit" value="Изменить">
+      </form>
+    </td>
 
-      <td>
-        <form th:method="DELETE" th:action="@{/remove_user/{id}(id=${user.getId()})}" >
-          <input class="remove_button" type="submit" value="Удалить">
-        </form>
-      </td>
-    </tr>
-  </table>
+    <td>
+      <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}" >
+        <input class="remove_button" type="submit" value="Удалить">
+      </form>
+    </td>
+  </tr>
+</table>
 </body>
 </html>

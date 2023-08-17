@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <title>Добавить</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Добавить</title>
 
-    <style>
-      .field {
-        border: 1px solid #111;
-        transition: .3s background-color;
-        margin: 5px;
-        border-radius:5px;
-        height: 20px;
-      }
+  <style>
+    .field {
+      border: 1px solid #111;
+      transition: .3s background-color;
+      margin: 5px;
+      border-radius:5px;
+      height: 20px;
+    }
 
-      form {
-        width: 270px;
-        height: 500px;
-        text-align: right;
-      }
+    form {
+      width: 270px;
+      height: 500px;
+      text-align: right;
+    }
 
-      .button {
-        float: right;
-        margin: 5px;
-        border-radius:5px;
-        border: 1px solid #111;
-        width: 210px;
-        height: 25px;
-        background: #00ffff;
-      }
+    .button {
+      float: right;
+      margin: 5px;
+      border-radius:5px;
+      border: 1px solid #111;
+      width: 210px;
+      height: 25px;
+      background: #00ffff;
+    }
 
-    </style>
-  </head>
-  <body>
+  </style>
+</head>
+<body>
 
-    <form th:method="POST" th:action="@{/add_user}" th:object="${user}">
+<form th:method="POST" th:action="@{/}" th:object="${user}">
 
-      <label for="name">Имя:</label>
-      <input class="field" type="text" th:field="*{firstName}" id="name">
-      <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
-      <br/>
+  <label for="firstName">Имя:</label>
+  <input class="field" type="text" th:field="*{firstName}" id="firstName">
+  <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+  <br/>
 
-      <label for="lastName">Фамилия:</label>
-      <input class="field" type="text" th:field="*{lastName}" id="lastName">
-      <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
-      <br/>
+  <label for="lastName">Фамилия:</label>
+  <input class="field" type="text" th:field="*{lastName}" id="lastName">
+  <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+  <br/>
 
-      <label for="email">E-mail:</label>
-      <input class="field" type="text" th:field="*{email}" id="email">
-      <span class="type-1" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-      <br/>
+  <label for="email">E-mail:</label>
+  <input class="field" type="text" th:field="*{email}" id="email">
+  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+  <br/>
 
-      <label for="age">Возраст:</label>
-      <input class="field" type="text" th:field="*{age}" id="age">
-      <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
-      <br/>
+  <label for="age">Возраст:</label>
+  <input class="field" type="text" th:field="*{age}" id="age">
+  <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+  <br/>
 
-      <input class="button" type="submit" value="Создать пользователя"/>
-    </form>
+  <input class="button" type="submit" value="Создать пользователя"/>
+</form>
 
-  </body>
+</body>
 </html>
